@@ -7,42 +7,37 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import controller.EventController;
+
 public class VentanaPrincipal extends JFrame {
-	
-	//Propiedades de la clase 
-	private JLabel etiqueta1;
-	private JLabel etiqueta2;
-	private JLabel etiqueta3;
-	private JTextField cajaTexto1;
-	private JTextField cajaTexto2;
-	private JButton botonSumar;
-	private JButton botonRestar;
-	private JButton botonMultiplicar;
-	private JButton botonDividir;
-	private JButton botonRaiz2;
-	private JButton botonRaiz3;
+
+	//Propiedades de la clase
+	private JLabel n1, n2, total;
+	private JTextField cajaTexto1, cajaTexto2;
+	private JButton botonSumar, botonRestar, botonMultiplicar, botonDividir, botonRaiz2, botonRaiz3;
 	
 	// Características de la ventana
 	public VentanaPrincipal() {
 		setSize (400,400);
 		setLocationRelativeTo(null); // centra en pantalla
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setTitle("Calculadora");		
+		setTitle("Calculadora");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("img1.jpg"));
-		inicializarComponentes();
 		setLayout(null);
+
+		inicializarComponentes();
+
 		setVisible(true);
-		
 	}
 	
 	private void inicializarComponentes() {
-		etiqueta1 = new JLabel ("Numero 1");
-		etiqueta1.setBounds(50,30,80,30);
-		add(etiqueta1);
+		n1 = new JLabel ("Numero 1");
+		n1.setBounds(50,30,80,30);
+		add(n1);
 		
-		etiqueta2 = new JLabel ("Numero 2");
-		etiqueta2.setBounds(50,70,80,30);
-		add(etiqueta2);
+		n2 = new JLabel ("Numero 2");
+		n2.setBounds(50,70,80,30);
+		add(n2);
 		
 		cajaTexto1 = new JTextField();
 		cajaTexto1.setBounds(110, 30, 100, 30);
@@ -76,9 +71,62 @@ public class VentanaPrincipal extends JFrame {
 		botonRaiz3.setBounds(160, 190, 100, 30);
 		add(botonRaiz3);
 		
-		etiqueta3 = new JLabel ("Resultado: ");
-		etiqueta3.setBounds(50,240,80,30);
-		add(etiqueta3);
-		
+		total = new JLabel ("Resultado: ");
+		total.setBounds(50,240,80,30);
+		add(total);
+	}
+	
+	public void activaController(EventController control) {
+		botonDividir.addActionListener(control);
+		botonSumar.addActionListener(control);
+		botonRestar.addActionListener(control);
+		botonMultiplicar.addActionListener(control);
+		botonRaiz2.addActionListener(control);
+		botonRaiz3.addActionListener(control);
+	}
+
+	// Getters
+	public JLabel getN1() {
+		return n1;
+	}
+
+	public JLabel getN2() {
+		return n2;
+	}
+
+	public JLabel getTotal() {
+		return total;
+	}
+
+	public JTextField getCajaTexto1() {
+		return cajaTexto1;
+	}
+
+	public JTextField getCajaTexto2() {
+		return cajaTexto2;
+	}
+
+	public JButton getBotonSumar() {
+		return botonSumar;
+	}
+
+	public JButton getBotonRestar() {
+		return botonRestar;
+	}
+
+	public JButton getBotonMultiplicar() {
+		return botonMultiplicar;
+	}
+
+	public JButton getBotonDividir() {
+		return botonDividir;
+	}
+
+	public JButton getBotonRaiz2() {
+		return botonRaiz2;
+	}
+
+	public JButton getBotonRaiz3() {
+		return botonRaiz3;
 	}
 }
