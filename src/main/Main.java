@@ -1,14 +1,14 @@
 package main;
 
+import controller.EventController;
 import ventana.VentanaPrincipal;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		VentanaPrincipal v = new VentanaPrincipal();
+		EventController controlador = new EventController(v);
 		
+		v.activaController(controlador);
 	}
-
 }
