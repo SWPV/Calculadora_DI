@@ -1,10 +1,12 @@
 package ventana;
 
+import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import controller.EventController;
@@ -15,6 +17,7 @@ public class VentanaPrincipal extends JFrame {
 	private JLabel n1, n2, total;
 	private JTextField cajaTexto1, cajaTexto2;
 	private JButton botonSumar, botonRestar, botonMultiplicar, botonDividir, botonRaiz2, botonRaiz3;
+	private JPasswordField cajaContraseña;
 	
 	// Características de la ventana
 	public VentanaPrincipal() {
@@ -32,46 +35,63 @@ public class VentanaPrincipal extends JFrame {
 	
 	private void inicializarComponentes() {
 		n1 = new JLabel ("Numero 1");
+		n1.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		n1.setBounds(50,30,80,30);
 		add(n1);
 		
 		n2 = new JLabel ("Numero 2");
+		n2.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		n2.setBounds(50,70,80,30);
 		add(n2);
 		
 		cajaTexto1 = new JTextField();
-		cajaTexto1.setBounds(110, 30, 100, 30);
+		cajaTexto1.setBounds(120, 30, 100, 30);
+		cajaTexto1.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		add(cajaTexto1);
 		
 		cajaTexto2 = new JTextField();
-		cajaTexto2.setBounds(110, 70, 100, 30);
+		cajaTexto2.setBounds(120, 70, 100, 30);
+		cajaTexto2.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		add(cajaTexto2);
+		
+		cajaContraseña= new JPasswordField();
+		cajaContraseña.setBounds(35, 10, 100, 30);
+		cajaContraseña.setEchoChar('*');
+//		add(cajaContraseña);
+		
 		
 		botonSumar = new JButton("Sumar");
 		botonSumar.setBounds(50, 110, 100, 30);
+		botonSumar.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		add(botonSumar);
 		
 		botonRestar = new JButton("Restar");
 		botonRestar.setBounds(160, 110, 100, 30);
+		botonRestar.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		add(botonRestar);
 		
 		botonMultiplicar = new JButton("Multiplicar");
 		botonMultiplicar.setBounds(50, 150, 100, 30);
+		botonMultiplicar.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		add(botonMultiplicar);
 		
 		botonDividir = new JButton("Dividir");
 		botonDividir.setBounds(160, 150, 100, 30);
+		botonDividir.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		add(botonDividir);
 		
 		botonRaiz2 = new JButton("Raiz 2");
 		botonRaiz2.setBounds(50, 190, 100, 30);
+		botonRaiz2.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		add(botonRaiz2);
 		
 		botonRaiz3 = new JButton("Raiz 3");
 		botonRaiz3.setBounds(160, 190, 100, 30);
+		botonRaiz3.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		add(botonRaiz3);
 		
 		total = new JLabel ("Resultado: ");
+		total.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		total.setBounds(50,240,80,30);
 		add(total);
 	}

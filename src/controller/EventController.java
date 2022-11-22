@@ -17,15 +17,15 @@ public class EventController implements ActionListener{
 	
 	// guardamos el input del usuario en variables numericas
 	public void getUserInput() {
-		n1 = Double.parseDouble(ventana.getN1().getText());
-		n2 = Double.parseDouble(ventana.getN2().getText());
+		n1 = Double.parseDouble(ventana.getCajaTexto1().getText());
+		n2 = Double.parseDouble(ventana.getCajaTexto2().getText());
 	}
 	
 	// vaciamos los campos numericos de la calculadora y le damos focus al numero 1
 	public void resetAndFocus() {
-		ventana.getN1().setText(null);
-		ventana.getN2().setText(null);
-		ventana.getN1().requestFocus();
+		ventana.getCajaTexto1().setText(null);
+		ventana.getCajaTexto2().setText(null);
+		ventana.getCajaTexto1().requestFocus();
 	}
 
 	@Override
@@ -36,6 +36,7 @@ public class EventController implements ActionListener{
 				getUserInput();
 				ventana.getTotal().setText(String.valueOf(n1 + n2));
 			}
+			
 			// RESTA
 			else if (e.getSource() == ventana.getBotonRestar()) {
 				getUserInput();
@@ -62,7 +63,7 @@ public class EventController implements ActionListener{
 				JOptionPane.showMessageDialog(ventana, "No disponible","Error", JOptionPane.WARNING_MESSAGE);
 			}
 			// R3
-			else if (e.getSource() == ventana.getBotonRaiz2()) {
+			else if (e.getSource() == ventana.getBotonRaiz3()) {
 				getUserInput();
 				String password = JOptionPane.showInputDialog("Escribe la contraseña del root user");
 				if(password.equals("root")) {
@@ -70,7 +71,7 @@ public class EventController implements ActionListener{
 					double n3 = Double.parseDouble(r3Answer);
 					ventana.getTotal().setText(
 							String.valueOf(
-									Math.round((Math.cbrt(n3)*100.0/100.0))
+									((Math.cbrt(n3)*100.0/100.0))
 									)
 							);
 				}
